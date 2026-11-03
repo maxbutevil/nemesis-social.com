@@ -13,6 +13,7 @@ export default defineConfig({
     pluginSass()
   ],
   html: {
+    title: "Nemesis Social",
     tags: [
       {
         tag: "link",
