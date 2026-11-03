@@ -1,0 +1,23 @@
+{
+  "name": "nemesis-social.com",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "lucide-solid": "^1.45.0",
+    "solid-js": "^1.9.14"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^2.1.11",
+    "@rsbuild/plugin-babel": "^2.0.1",
+    "@rsbuild/plugin-sass": "^2.0.1",
+    "@rsbuild/plugin-solid": "^1.2.2",
+    "@types/node": "^24.13.3",
+    "typescript": "^6.0.3"
+  }
+}
