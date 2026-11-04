@@ -141,9 +141,7 @@ b {
 }
 section {
   @include column(center, center);
-  //min-height: 100svh;
-  //min-height: 100vh;
-  flex: 1 0 100svh;
+  flex: 1 0 92svh;
   padding: 8px;
 }
 .section-content {

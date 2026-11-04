@@ -51,16 +51,28 @@ function ScrollFlow({ children }: { children: JSXElement }) {
     
     const observer = new IntersectionObserver(
       (entries) => {
+        /*let maxRatio = 0.4;
+        let maxEntry = null;
+        for (const entry of entries) {
+          //if (ratio ==)
+          if (entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            maxEntry = entry;
+          }
+        }
+        if (maxEntry) {
+          setItem(items.indexOf(maxEntry.target));
+        }*/
         for (const entry of entries) {
           if (entry.isIntersecting) {
             setItem(items.indexOf(entry.target));
-            break;
+            return;
           }
         }
       },
       {
         root: flow,
-        threshold: 0.5
+        threshold: 0.6
       }
     );
     
@@ -81,8 +93,10 @@ function ScrollFlow({ children }: { children: JSXElement }) {
       behavior: 'smooth',
     });*/
     const target = flow.children[index] as HTMLElement;
+    const offset = (window.innerHeight - target.offsetHeight) / 2;
+    
     flow.scroll({
-      top: target.offsetTop,
+      top: target.offsetTop - (offset > 0 ? offset : 0),
       behavior: 'smooth'
     });
   }
@@ -141,11 +155,6 @@ function InfoSection() {
                 Or maybe you thrive on conflict and need someone to disagree with.
                 <i> Nemesis</i> can make these dreams a reality.
               </p>
-              {/*<p>
-                Perhaps you're a hero, looking for a villain, whose evil schemes simply must be stopped!
-                Or maybe you're the villain, seeking out a hero worthy of opposing your greatness.
-                <i> Nemesis</i> can make these dreams a reality.
-              </p>*/}
             </div>
             <div class="info-content-secondary">
               <p class="section-quote">What if dating was good?</p>
@@ -172,7 +181,7 @@ function ArchetypeSection() {
       <div class="section-content">
         <div class="section-card">
           <p class="section-quote">Find your other half</p>
-          <p>No matter what kind of nemesis you're looking for, you can find them here:</p>
+          <p>No matter what kind of nemesis you're looking for, you can find them here!</p>
           <div class="archetype-list">
             <Archetype
               color="#44ee77"
@@ -269,6 +278,28 @@ function MonetizationSection() {
 function MissionSection() {
   return (
     <section id="status-section">
+      <div class="section-content">
+        <div class="section-card">
+          <div class="section-quote">A new kind of dating</div>
+          <p>
+            Today, the biggest dating apps are backed by large corporations, and built to keep you swiping forever.
+          </p>
+          <p>
+            On the other hand, Nemesis is a small business.
+            No ads, no shareholders, no predatory monetization.
+            We're a small team trying to make an app that makes the world a slightly better place.
+            It sounds cliché, but it's true!
+          </p>
+        </div>
+      </div>
+      <div class="section-spacer" />
+    </section>
+  );
+}
+
+function ConclusionSection() {
+  return (
+    <section id="conclusion-section">
       <div class="section-content">
         <div class="section-card">
           <div class="section-quote">A new kind of dating</div>
